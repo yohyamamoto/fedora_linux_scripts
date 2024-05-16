@@ -24,7 +24,7 @@ fi
 
 if [[ ! -z $vopt ]]
 then
-   echo "Feodra update script 0.1"
+   echo "Feodra update script 0.1.1"
    echo "Copyright (C) YY."
    echo "This is free software: you are free to change and redistribute it."
    echo "There is NO WARRANTY, to the extent permitted by law."
@@ -40,6 +40,6 @@ shift $(($OPTIND -1))
 echo "This script will update zoom on Fedora/Centos/Redhat"
 read -n 1 -s -r -p "Press any key to continue"
 
-wget https://zoom.us/client/latest/zoom_x86_64.rpm -P /tmp/
+wget -O https://zoom.us/client/latest/zoom_x86_64.rpm -P /tmp/
 sudo rpm -U /tmp/zoom_x86_64.rpm  
 
