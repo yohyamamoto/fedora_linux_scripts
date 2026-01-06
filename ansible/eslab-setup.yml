@@ -1,0 +1,40 @@
+- hosts: all
+  become: 'yes'
+  vars:
+    user:
+      - name: "admin"
+    packages:
+      - vim
+      - htop
+      - jmol
+  tasks:
+    - name: Ensure a list of packages installed
+      ansible.builtin.dnf:
+        name:
+          - vim
+          - git
+          - tig
+          - htop
+          - ranger
+          - multitail
+          - gfortran
+          - scalapack-mpich-devel
+          - openblas-devel
+          - avogadro2
+          - IQmol
+          #- jmol
+          - gnuplot
+          - nextcloud-client
+          - nextcloud-client-nautilus.x86_64
+          - snapd
+          - dnf5-plugin-automatic
+        state: latest
+        update_cache: yes
+    - name: Install packages from snaps
+      community.general.snap:
+        name:
+          - jmol
+        state: present
+    - name: All done!
+      debug:
+        msg: Packages have been successfully installed
