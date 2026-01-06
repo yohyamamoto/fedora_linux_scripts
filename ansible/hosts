@@ -1,10 +1,7 @@
 [workstations]
 gpu1
 gpu2
-eslab07
-eslab08
-eslab09
-eslab10
+
 
 [workstations:vars]
 ansible_connection=ssh
